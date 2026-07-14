@@ -1,7 +1,9 @@
 ### AL ###
 # Template for AL projects for Dynamics 365 Business Central
-# Editor settings
-.vscode/
+# Shared VS Code project settings; keep personal files ignored.
+.vscode/*
+!.vscode/c_cpp_properties.json
+!.vscode/settings.json
 # Cache folder
 .alcache/
 # Symbols folder

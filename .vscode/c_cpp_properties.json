@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "WSL-LibTorch",
+            "compilerPath": "/usr/bin/g++",
+            "intelliSenseMode": "linux-gcc-x64",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "includePath": [
+                "${workspaceFolder}",
+                "${workspaceFolder}/libtorch/include",
+                "${workspaceFolder}/libtorch/include/torch/csrc/api/include"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "${workspaceFolder}/libtorch/include",
+                    "${workspaceFolder}/libtorch/include/torch/csrc/api/include"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
+        }
+    ],
+    "version": 4
+}
