@@ -6,7 +6,7 @@ la API oficial de PyTorch, LibTorch.
 ## Estructura
 
 ```text
-deep_learning/
+dl/
 ├── libtorch/              # Dependencia local compartida; no se versiona
 ├── scripts/
 │   └── install_libtorch.sh
