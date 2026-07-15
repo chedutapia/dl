@@ -28,3 +28,6 @@ TestResults.xml
 /libtorch/
 /libtorch-*.zip
 /libtorch-*-old/
+
+# Top-level CMake build
+/build/

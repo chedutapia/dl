@@ -7,12 +7,14 @@ la API oficial de PyTorch, LibTorch.
 
 ```text
 dl/
+├── CMakeLists.txt         # Construcción conjunta de todos los ejemplos
 ├── libtorch/              # Dependencia local compartida; no se versiona
 ├── scripts/
 │   └── install_libtorch.sh
 ├── prueba0/               # Operaciones elementales con tensores
 ├── prueba1/               # Red sencilla para XOR
-└── prueba2/               # Red densa 3 → 4 → 3 → 2
+├── prueba2/               # Red densa 3 → 4 → 3 → 2
+└── backprop0/             # Autograd y backpropagation manual
 ```
 
 Cada proyecto tiene su propio `CMakeLists.txt`, código fuente y README. Todos
@@ -58,7 +60,36 @@ archivo correspondiente exista en el servidor oficial:
 Las distribuciones CUDA requieren elegir una variante compatible con el driver
 y no están cubiertas por este instalador para CPU.
 
-## Compilar un proyecto
+## Compilar todos los proyectos
+
+Desde la raíz del workspace:
+
+```bash
+cmake -S . -B build \
+  -DCMAKE_PREFIX_PATH="$PWD/libtorch" \
+  -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j
+```
+
+Los ejecutables quedan agrupados por proyecto:
+
+```text
+build/prueba0/prueba0
+build/prueba1/prueba1
+build/prueba2/prueba2
+build/backprop0/backprop0
+```
+
+Se puede construir y ejecutar solamente un ejemplo:
+
+```bash
+cmake --build build --target prueba0 -j
+./build/prueba0/prueba0
+```
+
+Los objetivos disponibles son `prueba0`, `prueba1`, `prueba2` y `backprop0`.
+
+## Compilar un proyecto de forma independiente
 
 Desde el directorio del ejemplo, se indica a CMake dónde está la instalación
 compartida:
@@ -72,7 +103,8 @@ cmake --build build -j
 ./build/prueba0
 ```
 
-Para los otros ejemplos se reemplaza `prueba0` por `prueba1` o `prueba2`.
+Para los otros ejemplos se reemplaza `prueba0` por `prueba1`, `prueba2` o
+`backprop0`.
 
 ## Visual Studio Code
 
@@ -98,6 +130,8 @@ Después de instalarlo, si IntelliSense todavía muestra errores:
 - [`prueba1`](prueba1/README.md): entrenamiento de un MLP para aprender XOR.
 - [`prueba2`](prueba2/README.md): arquitectura `3 → 4 → 3 → 2`, entrenamiento,
   logits, probabilidades y documentación detallada.
+- [`backprop0`](backprop0/README.md): ajuste de una función con una red
+  `1 → 5 → 5 → 1`, autograd y descenso de gradiente implementado manualmente.
 
 ## Archivos ignorados
 
