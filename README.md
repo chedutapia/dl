@@ -14,6 +14,7 @@ dl/
 ├── prueba0/               # Operaciones elementales con tensores
 ├── prueba1/               # Red sencilla para XOR
 ├── prueba2/               # Red densa 3 → 4 → 3 → 2
+├── prueba3/               # Red 3 → 4 → 3 → 2 con conexión residual
 └── backprop0/             # Autograd y backpropagation manual
 ```
 
@@ -77,6 +78,7 @@ Los ejecutables quedan agrupados por proyecto:
 build/prueba0/prueba0
 build/prueba1/prueba1
 build/prueba2/prueba2
+build/prueba3/prueba3
 build/backprop0/backprop0
 ```
 
@@ -87,7 +89,8 @@ cmake --build build --target prueba0 -j
 ./build/prueba0/prueba0
 ```
 
-Los objetivos disponibles son `prueba0`, `prueba1`, `prueba2` y `backprop0`.
+Los objetivos disponibles son `prueba0`, `prueba1`, `prueba2`, `prueba3` y
+`backprop0`.
 
 ## Compilar un proyecto de forma independiente
 
@@ -103,8 +106,8 @@ cmake --build build -j
 ./build/prueba0
 ```
 
-Para los otros ejemplos se reemplaza `prueba0` por `prueba1`, `prueba2` o
-`backprop0`.
+Para los otros ejemplos se reemplaza `prueba0` por `prueba1`, `prueba2`,
+`prueba3` o `backprop0`.
 
 ## Visual Studio Code
 
@@ -130,6 +133,8 @@ Después de instalarlo, si IntelliSense todavía muestra errores:
 - [`prueba1`](prueba1/README.md): entrenamiento de un MLP para aprender XOR.
 - [`prueba2`](prueba2/README.md): arquitectura `3 → 4 → 3 → 2`, entrenamiento,
   logits, probabilidades y documentación detallada.
+- [`prueba3`](prueba3/README.md): variante `3 → 4 → 3 → 2` con una conexión
+  residual desde la entrada hasta la segunda capa oculta.
 - [`backprop0`](backprop0/README.md): ajuste de una función con una red
   `1 → 5 → 5 → 1`, autograd y descenso de gradiente implementado manualmente.
 
